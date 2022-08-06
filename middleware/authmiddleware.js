@@ -5,12 +5,14 @@ const requireAuth = (req,res,next)=>{
     const token = req.cookies.token;
     if (token) {
         jwt.verify(token,process.env.SECRET,(err,decodeToken)=>{
-            if (err) res.redirect('/')
+            if (err) res.redirect('/signin')
             else {
                 console.log(decodeToken);
                 next()
             }
         })
     }
-    else res.redirect('/')
+    else res.redirect('/signin')
 }
+
+module.exports = {requireAuth}

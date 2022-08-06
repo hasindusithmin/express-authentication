@@ -1,12 +1,12 @@
 
 const {Router} = require('express')
-
+const {requireAuth} = require('../middleware/authmiddleware')
 const route = Router()
 
 route.get('/',(req,res)=>{
     res.render('home')
 })
-route.get('/chart',(req,res)=>{
+route.get('/chart',requireAuth,(req,res)=>{
     res.render('chart')
 })
 route.get('/signup',(req,res)=>{
