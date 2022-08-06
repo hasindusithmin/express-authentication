@@ -1,5 +1,6 @@
 require('dotenv').config()
 const jwt = require('jsonwebtoken')
+const supabase = require('../config/supabase')
 
 const requireAuth = (req,res,next)=>{
     const token = req.cookies.token;
@@ -7,7 +8,6 @@ const requireAuth = (req,res,next)=>{
         jwt.verify(token,process.env.SECRET,(err,decodeToken)=>{
             if (err) res.redirect('/signin')
             else {
-                console.log(decodeToken);
                 next()
             }
         })
@@ -15,4 +15,19 @@ const requireAuth = (req,res,next)=>{
     else res.redirect('/signin')
 }
 
-module.exports = {requireAuth}
+const checkUser = (req,res,next)=>{
+    const token = req.cookies.token;
+    if (token) {
+        jwt.verify(token,process.env.SECRET,(err,decodeToken)=>{
+            if (err) next()
+            else {
+                res.locals.user = decodeToken.id;
+                next()
+            }
+        })
+    }
+    else next()
+}
+
+
+module.exports = {requireAuth,checkUser}

@@ -2,6 +2,7 @@
 const express = require('express')
 const authRoute = require('./routes/authroute')
 const pageroute = require('./routes/pageroute')
+const {checkUser} = require('./middleware/authmiddleware')
 const cookieParser = require('cookie-parser')
 const app = express()
 
@@ -13,7 +14,8 @@ app.set('view engine','ejs')
 app.use(express.json())
 //middleware for work with cookie
 app.use(cookieParser())
-
+//middleware for check user
+app.use('*',checkUser)
 //regiter the pageroute
 app.use(pageroute)
 //regiter the authroutes

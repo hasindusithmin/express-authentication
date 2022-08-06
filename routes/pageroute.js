@@ -4,7 +4,7 @@ const {requireAuth} = require('../middleware/authmiddleware')
 const route = Router()
 
 route.get('/',(req,res)=>{
-    res.render('home')
+    res.render('home',{user:res.locals.user})
 })
 route.get('/chart',requireAuth,(req,res)=>{
     res.render('chart')

@@ -37,7 +37,7 @@ route.get("/signout",async(req,res)=>{
         const { error } = await supabase.auth.signOut()
         if (error) throw error
         res.cookie("token",'',{maxAge:1})
-        res.sendStatus(202)
+        res.redirect('/')
     } catch (error) {
         res.status(400).json({error:error.message})
     }
