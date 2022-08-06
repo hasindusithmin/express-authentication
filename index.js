@@ -2,9 +2,12 @@
 const express = require('express')
 const authRoute = require('./routes/authroute')
 const cookieParser = require('cookie-parser')
-
 const app = express()
 
+
+
+//set view engine(ejs)
+app.set('view engine','ejs')
 //middleware for parse application/json
 app.use(express.json())
 //middleware for work with cookie
