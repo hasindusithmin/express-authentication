@@ -9,4 +9,10 @@ route.get('/',(req,res)=>{
 route.get('/chart',(req,res)=>{
     res.render('chart')
 })
+route.get('/signup',(req,res)=>{
+    res.render('signup')
+})
+route.get('/signin',(req,res)=>{
+    res.render('signin')
+})
 module.exports = route;

@@ -14,10 +14,11 @@ app.use(express.json())
 //middleware for work with cookie
 app.use(cookieParser())
 
-//regiter the authroutes
-app.use('/auth',authRoute)
 //regiter the pageroute
 app.use(pageroute)
+//regiter the authroutes
+app.use('/auth',authRoute)
+
 
 //root url
 app.get('/',(req,res)=>{
