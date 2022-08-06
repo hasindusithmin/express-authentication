@@ -4,6 +4,10 @@ const authRoute = require('./routes/authroute')
 
 
 const app = express()
+
+//middleware for parse application/json
+app.use(express.json())
+
 //regiter the authroutes
 app.use('/auth',authRoute)
 
