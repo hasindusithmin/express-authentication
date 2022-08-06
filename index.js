@@ -1,7 +1,11 @@
 
 const express = require('express')
+const authRoute = require('./routes/authroute')
+
 
 const app = express()
+//regiter the authroutes
+app.use('/auth',authRoute)
 
 //root url
 app.get('/',(req,res)=>{
