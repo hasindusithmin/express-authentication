@@ -1,6 +1,7 @@
 
 const express = require('express')
 const authRoute = require('./routes/authroute')
+const pageroute = require('./routes/pageroute')
 const cookieParser = require('cookie-parser')
 const app = express()
 
@@ -15,6 +16,8 @@ app.use(cookieParser())
 
 //regiter the authroutes
 app.use('/auth',authRoute)
+//regiter the pageroute
+app.use(pageroute)
 
 //root url
 app.get('/',(req,res)=>{
