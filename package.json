@@ -1,0 +1,19 @@
+{
+  "name": "express-authentication",
+  "version": "1.0.0",
+  "description": "express + supabase authentication",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hasindusithmin/express-authentication.git"
+  },
+  "author": "hasindusithmin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hasindusithmin/express-authentication/issues"
+  },
+  "homepage": "https://github.com/hasindusithmin/express-authentication#readme"
+}
